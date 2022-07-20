@@ -1145,9 +1145,10 @@
       (async () => {
       const url = new URL(location.href);
       const aatoken = url.searchParams.get("registration_validation_token");
+      const auth_id = url.searchParams.get("auth_validation_token") || undefined;
 
       if (aatoken) {
-      location.href = "http://localhost:3000/?token=" + aatoken;
+      location.href = "http://localhost:3000/?token=" + aatoken + "&auth_id=" + auth_id;
     } else {
       alert("No token found");
     }
